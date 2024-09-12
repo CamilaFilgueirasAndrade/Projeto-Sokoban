@@ -1,5 +1,5 @@
 body{
-    margin: 0;
+margin: 0;
 height: 100vh;
 }
 
@@ -15,13 +15,29 @@ display: block;
 }
 
 .tabuleiro{
-width: 256px;
-height: 265px;
+display: block;
+min-width: 256px;
+min-height: 256px;
+padding: 2px 3px;
 
-border: solid 8px;
+border: solid 8px #505050;
 border-radius: 8px;
-border-color: #505050;
 background-color: gray;
 
-box-shadow: 4px 4px rgba(140, 138, 138, 0.754);
+box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
+}
+
+.row {
+    display: flex;
+    min-height: auto;
+    margin: 2px 0;
+    
+}
+
+.cell {
+    height: 64px;
+    width: 64px;
+    margin: 0 1px;
+    background-color: aliceblue;
+    border-radius: 2px;
 }
