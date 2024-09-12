@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+height: 100vh;
+}
+
+main{
+display: flex;
+justify-content: center;
+align-items: center;
+height: inherit;
+}
+
+#jogo{
+display: block;
+}
+
+.tabuleiro{
+width: 256px;
+height: 265px;
+
+border: solid 8px;
+border-radius: 8px;
+border-color: #505050;
+background-color: gray;
+
+box-shadow: 4px 4px rgba(140, 138, 138, 0.754);
+}
