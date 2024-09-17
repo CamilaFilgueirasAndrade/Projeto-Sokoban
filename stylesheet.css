@@ -11,7 +11,11 @@ height: inherit;
 }
 
 #jogo{
-display: block;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+flex-wrap: wrap;
 }
 
 .tabuleiro{
@@ -22,13 +26,14 @@ padding: 2px 3px;
 
 border: solid 8px #505050;
 border-radius: 8px;
-background-color: gray;
+background-image: linear-gradient( fuchsia, pink, deeppink) ;
 
 box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 }
 
 .row {
     display: flex;
+    flex-direction: row;
     min-height: auto;
     margin: 2px 0;
     
@@ -40,4 +45,17 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
     margin: 0 1px;
     background-color: aliceblue;
     border-radius: 2px;
+    box-shadow: 4px 4px rgba(56, 54, 54, 0.302);
 }
+
+.empty {
+    background-color: unset;
+    box-shadow: none;
+}
+
+/* .flag{
+    background-image: linear-gradient( fuchsia, pink, deeppink) ;
+} */
+
+
+
