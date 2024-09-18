@@ -38,12 +38,14 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 }
 
 .cell {
-    width: min(5vw, 5vh);
-    height: min(5vw, 5vh);
+    width: 64px;
+    height: 64px;
     margin: 0 1px;
     box-sizing: border-box;
+
     background-color: aliceblue;
     border-radius: 3px;
+
     box-shadow: 4px 4px rgba(56, 54, 54, 0.302);
 }
 
@@ -52,9 +54,14 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
     box-shadow: none;
 }
 
-/* .flag{
-    background-image: linear-gradient( fuchsia, pink, deeppink) ;
-} */
+.player{
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
 
+    border: solid 4px gold;
+    border-radius: 50%;
+    background-image:linear-gradient(goldenrod, gold);
 
-
+    box-shadow: 2px 3px 3px rgba(57, 49, 49, 0.302);
+}
