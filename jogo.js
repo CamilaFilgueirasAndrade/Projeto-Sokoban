@@ -9,14 +9,16 @@ player.addEventListener("click", function () {
 })
 
 window.addEventListener("keydown", function (event) {
-    // window.alert("Pressionou tecla");
-    console.log(event.code);
+    nextPosition(event.code);
 
-if(event.code === "ArrowUp") x--;
-if(event.code === "ArrowDown") x++;
-if(event.code === "ArrowLeft") y--;
-if(event.code === "ArrowRight") y++;
 
-console.log(x, y);
 })
 
+function nextPosition(keycode) {
+    if (keycode === "ArrowUp") x--;
+    if (keycode === "ArrowDown") x++;
+    if (keycode === "ArrowLeft") y--;
+    if (keycode === "ArrowRight") y++;
+
+    console.log(keycode, x, y);
+}
