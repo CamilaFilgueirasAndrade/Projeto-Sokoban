@@ -4,50 +4,43 @@ const playerElement = document.querySelector('.player');
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
+    
 
-    if (verifyPosition(next)) player.movePlayer(next);
+    if (verifyPosition(next)) {
+        let K = next.x * 4 + next.y;
+        player.moveTo(next, playerElement, celulas[K]);
+        
+    }
 })
 
 function Player(x, y) {
     this.x = x;
     this.y = y;
-
+    
     this.nextPosition = function(keycode) {
         let { x, y } = player;
-    
+        
         if (keycode === "ArrowUp") x--;
         if (keycode === "ArrowDown") x++;
         if (keycode === "ArrowLeft") y--;
         if (keycode === "ArrowRight") y++;
         
         return { x, y };
-    
+        
     }
-
-    this.movePlayer = function(position) {
+    
+    this.moveTo = function(position, element, parent) {
+        
         let { x, y } = position;
         this.x = x;
         this.y = y;
+        
+        parent.append(element);
     
-        const k = x * 4 + y;
-    
-        celulas[k].append(playerElement);
-        console.log(position);
     }
 }
 
-function nextPosition(keycode) {
-    let { x, y } = player;
 
-    if (keycode === "ArrowUp") x--;
-    if (keycode === "ArrowDown") x++;
-    if (keycode === "ArrowLeft") y--;
-    if (keycode === "ArrowRight") y++;
-    
-    console.log(keycode, player);
-    return { x, y };
-
-}
 
 function verifyPosition(position) {
     console.log(position);

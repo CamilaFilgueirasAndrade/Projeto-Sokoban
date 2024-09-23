@@ -27,6 +27,7 @@ border: solid 8px #505050;
 border-radius: 8px;
 background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
 box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
+
 }
 
 .row {
