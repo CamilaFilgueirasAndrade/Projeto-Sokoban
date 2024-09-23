@@ -19,6 +19,7 @@ flex-wrap: wrap;
 }
 
 .tabuleiro{
+position: relative;
 display: block;
 min-width: 256px;
 min-height: 256px;
@@ -56,6 +57,9 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 }
 
 .player{
+    position: absolute;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
     width: 64px;
     height: 64px;
