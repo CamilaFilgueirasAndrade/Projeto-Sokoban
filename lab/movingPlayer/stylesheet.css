@@ -1,0 +1,73 @@
+body{
+margin: 0;
+height: 100vh;
+}
+
+main{
+display: flex;
+justify-content: center;
+align-items: center;
+height: inherit;
+}
+
+#jogo{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+flex-wrap: wrap;
+}
+
+.tabuleiro{
+position: relative;
+display: block;
+min-width: 256px;
+min-height: 256px;
+padding: 2px 3px;
+border: solid 8px #505050;
+border-radius: 8px;
+background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    min-height: auto;
+    margin: 2px 0;
+    
+}
+
+.cell {
+    width: 64px;
+    height: 64px;
+    margin: 0 1px;
+    box-sizing: border-box;
+
+    background-color: aliceblue;
+    border-radius: 3px;
+
+    box-shadow: 4px 4px rgba(56, 54, 54, 0.302);
+}
+
+.empty {
+    background-color: unset;
+    box-shadow: none;
+}
+
+.player{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+
+    border: solid 4px gold;
+    border-radius: 50%;
+    background-image:linear-gradient(goldenrod, gold);
+
+    box-shadow: 2px 3px 3px rgba(57, 49, 49, 0.302);
+}
+
