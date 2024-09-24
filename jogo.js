@@ -1,9 +1,39 @@
-const player = new Player(0, 0);
-const celulas = document.querySelectorAll('.cell');
-const playerElement = document.querySelector('.player');
 
-const DIST_SALTO = 66;
-const MARGIN_FIX = 4;
+function rule0(celula, k) {
+    if( k <= 4) {
+        celula.classList.add('empty');
+     }
+    }
+    
+    buildGameBoard(8, 8, rule0);
+
+    function buildGameBoard(numRows, numCols, drawRule) {
+        const game = document.getElementById("jogo");
+        const board = document.createElement('div');
+        board.classList.add('tabuleiro');
+        
+        
+        for (let k = 0;  k < numRows; k++) {
+            const row = document.createElement('div');
+            row.classList.add('row');
+            board.append(row);
+            
+            for (let i =0; i <numCols; i++) {
+                const celula = document.createElement('div');
+                celula.classList.add('cell');
+                row.append(celula);
+                
+                drawRule(celula, numRows, numCols, k, i);
+            }
+        }
+        game.append(board);
+    }
+
+    const player = new Player(0, 0);
+    const playerElement = document.querySelector('.player');
+    
+    const DIST_SALTO = 66;
+    const MARGIN_FIX = 4;
 
 playerElement.style.top = calculaPosicao(0);
 playerElement.style.left = calculaPosicao(0);
@@ -14,7 +44,6 @@ window.addEventListener("keydown", function (event) {
     
     
     if (verifyPosition(next)) {
-        let K = next.x * 4 + next.y;
         player.moveTo(next, playerElement);
         
     }
@@ -36,7 +65,7 @@ function Player(x, y) {
         
     }
     
-    this.moveTo = function(position, element, _parent) {
+    this.moveTo = function(position, element) {
         
         let { x, y } = position;
         this.x = x;
@@ -48,8 +77,6 @@ function Player(x, y) {
     
     }
 }
-
-
 
 function verifyPosition(position) {
     console.log(position);
