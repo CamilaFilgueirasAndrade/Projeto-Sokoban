@@ -36,6 +36,8 @@ function buildGameBoard(numRows, numCols) {
             console.log(char);
             
             if(char === '#')cell.classList.add('wall')
+            if(char === 'G')cell.classList.add('goal')
+            if(char === 'B')cell.classList.add('box')
     
         }
     }
