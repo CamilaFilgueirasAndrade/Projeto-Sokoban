@@ -36,6 +36,7 @@ function buildGameBoard(numRows, numCols) {
             console.log(char);
             
             if(char === '#')cell.classList.add('wall')
+    
         }
     }
 
