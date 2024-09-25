@@ -66,7 +66,7 @@ function verifyPosition(position) {
     console.log(position);
     let { x, y } = position;
 
-    return x >= 0 && x < NUM_ROWS && y >= 0 && y < NUM_COLS;
+    return boardMap[x][y] !== '#';
 }
 
 function calculaPosicao(qtd) {
