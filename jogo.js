@@ -17,11 +17,11 @@ const MARGIN_FIX = 4;
 
 buildGameBoard(NUM_ROWS, NUM_COLS);
 
-const player = new Player(0, 0);
+const player = new Player(1, 1);
 const playerElement = document.querySelector('.player');
 
-playerElement.style.top = calculaPosicao(0);
-playerElement.style.left = calculaPosicao(0);
+playerElement.style.top = calculaPosicao(player.x);
+playerElement.style.left = calculaPosicao(player.y);
 
 
 window.addEventListener("keydown", function (event) {
