@@ -60,7 +60,6 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 .goal { background-color: burlywood; }
 .wall { background-color: darkgray; }
 
-
 .player{
     position: absolute;
     top: 0;

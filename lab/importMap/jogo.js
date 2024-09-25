@@ -1,3 +1,4 @@
+
 const boardMap = [
     ["#", "#", "#", "#", "#", "#", "#", "#"],
     ["#", ".", ".", ".", ".", ".", ".", "#"],
@@ -12,66 +13,8 @@ const boardMap = [
 const NUM_ROWS = boardMap.length;
 const NUM_COLS = boardMap[0].length;
 
-const DIST_SALTO = 66;
-const MARGIN_FIX = 4;
-
 buildGameBoard(NUM_ROWS, NUM_COLS);
 
-const player = new Player(1, 1);
-const playerElement = document.querySelector('.player');
-
-playerElement.style.top = calculaPosicao(player.x);
-playerElement.style.left = calculaPosicao(player.y);
-
-
-window.addEventListener("keydown", function (event) {
-    const next = player.nextPosition(event.code);
-
-    if (verifyPosition(next)) {
-        player.moveTo(next, playerElement);
-
-    }
-})
-
-function Player(x, y) {
-    this.x = x;
-    this.y = y;
-
-    this.nextPosition = function (keycode) {
-        let { x, y } = player;
-
-        if (keycode === "ArrowUp") x--;
-        if (keycode === "ArrowDown") x++;
-        if (keycode === "ArrowLeft") y--;
-        if (keycode === "ArrowRight") y++;
-
-        return { x, y };
-
-    }
-
-    this.moveTo = function (position, element) {
-
-        let { x, y } = position;
-        this.x = x;
-        this.y = y;
-
-        element.style.top = calculaPosicao(this.x);
-        element.style.left = calculaPosicao(this.y);
-
-
-    }
-}
-
-function verifyPosition(position) {
-    console.log(position);
-    let { x, y } = position;
-
-    return boardMap[x][y] !== '#';
-}
-
-function calculaPosicao(qtd) {
-    return `${qtd * DIST_SALTO + MARGIN_FIX}px`;
-}
 
 function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);
@@ -83,7 +26,7 @@ function createGameElement(elementName, className, parentNode) {
 function buildGameBoard(numRows, numCols) {
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
-    
+
     for (let i = 0; i < numRows; i++) {
         const row = createGameElement('div', 'row', board);
 
@@ -98,7 +41,8 @@ function buildGameBoard(numRows, numCols) {
     
         }
     }
-    
-    createGameElement('div', 'player', board);
+
 }
+
+
 
