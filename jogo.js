@@ -7,7 +7,7 @@ const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
 const board = document.querySelector('.tabuleiro');
 
 const playerElement = createGameElement('div', 'player', board);
-const player = new Player(pieces.player.x, pieces.player.y);
+const player = new Piece(pieces.player.x, pieces.player.y);
 
 playerElement.style.top = calculaPosicao(player.x);
 playerElement.style.left = calculaPosicao(player.y);
@@ -22,7 +22,7 @@ window.addEventListener("keydown", function (event) {
     }
 })
 
-function Player(x, y) {
+function Piece(x, y) {
     this.x = x;
     this.y = y;
 
