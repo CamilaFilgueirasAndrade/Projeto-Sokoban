@@ -14,14 +14,14 @@ function Piece(x, y) {
 
     }
 
-    this.moveTo = function (position, element) {
+    this.moveTo = function (position) {
 
         let { x, y } = position;
-        this.x = x;
-        this.y = y;
+        this.x = position.x;
+        this.y = position.y;
 
-        element.style.top = calculaPosicao(this.x);
-        element.style.left = calculaPosicao(this.y);
+        this.elemento.style.top = calculaPosicao(this.x);
+        this.elemento.style.left = calculaPosicao(this.y);
 
 
     }
