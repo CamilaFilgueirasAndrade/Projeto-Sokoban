@@ -1,16 +1,4 @@
-const boardMap = [
-    ["#", "#", "#", "#", "#", "#", "#", "#"],
-    ["#", ".", ".", ".", ".", ".", ".", "#"],
-    ["#", ".", ".", ".", "#", ".", ".", "#"],
-    ["#", ".", "#", "G", ".", ".", ".", "#"],
-    ["#", ".", ".", "G", "B", "#", ".", "#"],
-    ["#", ".", ".", "#", ".", "B", ".", "#"],
-    ["#", ".", ".", "P", ".", ".", ".", "#"],
-    ["#", "#", "#", "#", "#", "#", "#", "#"]
-];
 
-const NUM_ROWS = boardMap.length;
-const NUM_COLS = boardMap[0].length;
 
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
@@ -18,7 +6,7 @@ const MARGIN_FIX = 4;
 const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
 const board = document.querySelector('.tabuleiro');
 
-const playerElement = createGameElement('div', 'block', board);
+const playerElement = createGameElement('div', 'player', board);
 const player = new Player(pieces.player.x, pieces.player.y);
 
 playerElement.style.top = calculaPosicao(player.x);
