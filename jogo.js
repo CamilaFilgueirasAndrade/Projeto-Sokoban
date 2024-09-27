@@ -16,9 +16,10 @@ const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 
 const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+const board = document.querySelector('.tabuleiro');
 
+const playerElement = createGameElement('div', 'block', board);
 const player = new Player(pieces.player.x, pieces.player.y);
-const playerElement = document.querySelector('.player');
 
 playerElement.style.top = calculaPosicao(player.x);
 playerElement.style.left = calculaPosicao(player.y);
@@ -102,7 +103,6 @@ function buildGameBoard(numRows, numCols) {
         }
     }
 
-    createGameElement('div', 'player', board);
     return positionOfPieces;
 }
 
