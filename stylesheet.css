@@ -1,33 +1,33 @@
-body{
-margin: 0;
-height: 100vh;
+body {
+    margin: 0;
+    height: 100vh;
 }
 
-main{
-display: flex;
-justify-content: center;
-align-items: center;
-height: inherit;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
 }
 
-#jogo{
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-flex-wrap: wrap;
+#jogo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.tabuleiro{
-position: relative;
-display: block;
-min-width: 256px;
-min-height: 256px;
-padding: 2px 3px;
-border: solid 8px #505050;
-border-radius: 8px;
-background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
-box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
+.tabuleiro {
+    position: relative;
+    display: block;
+    min-width: 256px;
+    min-height: 256px;
+    padding: 2px 3px;
+    border: solid 8px #505050;
+    border-radius: 8px;
+    background-image: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+    box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 
 }
 
@@ -36,7 +36,7 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
     flex-direction: row;
     min-height: auto;
     margin: 2px 0;
-    
+
 }
 
 .cell {
@@ -45,7 +45,7 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
     margin: 0 1px;
     box-sizing: border-box;
 
-    background-color: rgb(240, 248, 255) ;
+    background-color: rgb(240, 248, 255);
     border-radius: 3px;
 
     box-shadow: 4px 4px rgba(56, 54, 54, 0.302);
@@ -56,12 +56,32 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
     box-shadow: none;
 }
 
-.box { background-color: chocolate; }
-.goal { background-color: burlywood; }
-.wall { background-color: darkgray; }
+.box {
+    background-color: chocolate;
+    border: 3px solid burlywood;
+    border-radius: 10%;
+}
+
+.block{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin: 2px;
+    border: 8px solid;
+    border-radius: 20%;
+    background-color: chocolate;
+}
+
+.goal {
+    background-color: burlywood;
+}
+
+.wall {
+    background-color: darkgray;
+}
 
 
-.player{
+.player {
     position: absolute;
     top: 0;
     left: 0;
@@ -71,8 +91,7 @@ box-shadow: 4px 4px 4px rgba(140, 138, 138, 0.754);
 
     border: solid 4px gold;
     border-radius: 50%;
-    background-image:linear-gradient(goldenrod, gold);
+    background-image: linear-gradient(goldenrod, gold);
 
     box-shadow: 2px 3px 3px rgba(57, 49, 49, 0.302);
 }
-
