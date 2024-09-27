@@ -62,11 +62,6 @@ function calculaPosicao(qtd) {
     return `${qtd * DIST_SALTO + MARGIN_FIX}px`;
 }
 
-function createGameElement(elementName, className, parentNode) {
-    const element = document.createElement(elementName);
-    element.classList.add(className);
-    parentNode.append(element);
-    return element;
-}
+
 
 

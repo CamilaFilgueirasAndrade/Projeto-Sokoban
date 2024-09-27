@@ -36,3 +36,10 @@ function buildGameBoard(numRows, numCols) {
 
     return positionOfPieces;
 }
+
+function createGameElement(elementName, className, parentNode) {
+    const element = document.createElement(elementName);
+    element.classList.add(className);
+    parentNode.append(element);
+    return element;
+}
