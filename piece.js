@@ -25,5 +25,13 @@ function Piece(x, y) {
 
 
     }
+
+    this.insertElementInto = function(className, parent){
+        this.elemento = createGameElement('div', className, parent);
+    
+        this.elemento.style.top = calculaPosicao(this.x);
+        this.elemento.style.left = calculaPosicao(this.y);
+        
+    }
 }
 

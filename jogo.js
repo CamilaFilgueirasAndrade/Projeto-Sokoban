@@ -10,12 +10,9 @@ const player = new Piece(pieces.player.x, pieces.player.y);
 const playerElement = creatBoardPiece(player, 'player');
 
 function creatBoardPiece(piece, className){
-    const elemento = createGameElement('div', className, board);
+ piece.insertElementInto(className, board);
     
-    elemento.style.top = calculaPosicao(piece.x);
-    elemento.style.left = calculaPosicao(piece.y);
-    
-    return elemento;
+    return piece.element;
 }
 
 
@@ -29,7 +26,7 @@ window.addEventListener("keydown", function (event) {
 })
 
 function verifyPosition(position) {
-    console.log(position);
+
     let { x, y } = position;
 
     return boardMap[x][y] !== '#';
