@@ -26,3 +26,14 @@ function Piece(x, y) {
 
     }
 }
+
+function verifyPosition(position) {
+    console.log(position);
+    let { x, y } = position;
+
+    return boardMap[x][y] !== '#';
+}
+
+function calculaPosicao(qtd) {
+    return `${qtd * DIST_SALTO + MARGIN_FIX}px`;
+}
