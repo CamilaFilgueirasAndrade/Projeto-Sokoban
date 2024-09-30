@@ -5,6 +5,30 @@ const pieces = buildGameBoard();
 const board = document.querySelector('.tabuleiro');
 
 const playerPiece = creatBoardPiece(pieces.player, 'player');
+const boxes = [];
+
+for( let box of piences.boxes){
+    let piece = creatBoardPiece(box, 'box')
+}
+
+for (let i = 0; i < pieces.block.length; i ++){
+    creatBoardPiece(pieces.block[i], 'block');
+    boxes.push(piece);
+}
+
+function handleKeyDownEvent(keycode){
+    const next = playerPiece.nextPosition(keycode);
+    
+    if (verifyPosition(next)) {
+        playerPiece.moveTo(next);
+    
+    }
+
+}
+window.addEventListener("keydown", function (event) {
+    handleKeyDownEvent(event.code);
+
+})
 
 function creatBoardPiece(piecePosition, className) {
     const piece = new Piece(piecePosition.x, piecePosition.y);
@@ -15,18 +39,7 @@ function creatBoardPiece(piecePosition, className) {
     return piece;
 }
 
-for (let i = 0; i < pieces.block.length; i ++){
-    creatBoardPiece(pieces.block[i], 'block');
-}
 
-window.addEventListener("keydown", function (event) {
-    const next = playerPiece.nextPosition(event.code);
-
-    if (verifyPosition(next)) {
-        playerPiece.moveTo(next);
-
-    }
-})
 
 function verifyPosition(position) {
 

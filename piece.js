@@ -17,7 +17,6 @@ function Piece(x, y) {
         if (keycode === "ArrowRight") x++;
 
         return { x, y };
-
     }
 
     this.moveTo = function (position) {

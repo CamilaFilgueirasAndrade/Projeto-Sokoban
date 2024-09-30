@@ -19,7 +19,6 @@ export function buildGameBoard() {
 
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
-    console.log(pieces);
 
     for (let i = 0; i < NUM_ROWS; i++) {
         const row = createGameElement('div', 'row', board);
