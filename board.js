@@ -19,6 +19,7 @@ export function buildGameBoard() {
 
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
+    console.log(pieces);
 
     for (let i = 0; i < NUM_ROWS; i++) {
         const row = createGameElement('div', 'row', board);
@@ -32,8 +33,8 @@ export function buildGameBoard() {
             if (char === '#') cell.classList.add('wall');
             if (char === 'G') cell.classList.add('goal');
             if (char === 'P') pieces.player = position;
-            if (char === 'B') pieces.block.push = position;
-            if (char === 'B') cell.classList.add('box');
+            if (char === 'B') pieces.block.push(position);
+            // if (char === 'B') cell.classList.add('box');
 
         }
     }

@@ -4,20 +4,26 @@ import { buildGameBoard, boardMap } from "./board.js";
 const pieces = buildGameBoard();
 const board = document.querySelector('.tabuleiro');
 
-const player = creatBoardPiece(pieces.player, 'player');
+const playerPiece = creatBoardPiece(pieces.player, 'player');
 
 function creatBoardPiece(piecePosition, className) {
     const piece = new Piece(piecePosition.x, piecePosition.y);
     piece.insertElementInto(className, board);
 
+
+
     return piece;
 }
 
+for (let i = 0; i < pieces.block.length; i ++){
+    creatBoardPiece(pieces.block[i], 'block');
+}
+
 window.addEventListener("keydown", function (event) {
-    const next = player.nextPosition(event.code);
+    const next = playerPiece.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next);
+        playerPiece.moveTo(next);
 
     }
 })
@@ -28,4 +34,3 @@ function verifyPosition(position) {
 
     return boardMap[i][j] !== '#';
 }
-
