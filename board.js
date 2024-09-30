@@ -27,11 +27,12 @@ export function buildGameBoard() {
             const cell = createGameElement('div', 'cell', row);
 
             const char = boardMap[i][j]
+            const position = {x: j, y:i};
 
             if (char === '#') cell.classList.add('wall');
             if (char === 'G') cell.classList.add('goal');
-            if (char === 'P') pieces.player = { x: i, y: j };
-            // if (char === 'B') pieces.block.push = ({ x: i, y: j });
+            if (char === 'P') pieces.player = position;
+            if (char === 'B') pieces.block.push = position;
             if (char === 'B') cell.classList.add('box');
 
         }
