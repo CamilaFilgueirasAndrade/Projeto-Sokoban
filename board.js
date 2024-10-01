@@ -33,8 +33,6 @@ export function buildGameBoard() {
             if (char === 'G') cell.classList.add('goal');
             if (char === 'P') pieces.player = position;
             if (char === 'B') pieces.block.push(position);
-            // if (char === 'B') cell.classList.add('box');
-
         }
     }
 
