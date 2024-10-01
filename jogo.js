@@ -44,20 +44,20 @@ console.log(findBoxAtPosition({ x: 5, y: 5 }));
 */
 function handlePieceMovement(keycode) {
     // Variável destinada ao pré-cálculo da posição do jogador
-    const next = player.nextPosition(keycode);
+    const nextPlayerPosition = player.nextPosition(keycode);
     // (Modificar) Variável para detectar a "presença" de outra peça
-    const foundPice = null;
+    const foundPiece = findBoxAtPosition(nextPlayerPosition);
 
     // Implementar lógica caso encontre uma outra peça no caminho.
-    if (foundPice) {
-
+    if (foundPiece) {
+        console.log(nextPlayerPosition);
     }
     // E caso não encontre outra peça...
     else {
         // Faça as modificações que forem necessárias para manter o
         // funcionamento do jogo.
-        if (verifyPosition(next)) {
-            player.moveTo(next);
+        if (verifyPosition(nextPlayerPosition)) {
+            player.moveTo(nextPlayerPosition);
         }
     }
 }
