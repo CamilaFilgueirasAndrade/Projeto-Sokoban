@@ -28,6 +28,11 @@ window.addEventListener("keydown", function (event) {
     handlePieceMovement(event.code);
 });
 
+function levantaPlaquinha(){
+    alert("Objetivo concluido!");
+
+}
+
 function findBoxAtPosition(position) {
 
     return boxes.find((boxes) => position.y === boxes.y && position.x === boxes.x);
@@ -51,10 +56,11 @@ function handlePieceMovement(keycode) {
             player.moveTo(nextPlayerPosition);
 
             const qtdCaixasCorretas = contaCaixasCorretas();
+            
             if(qtdCaixasCorretas == 3){
-                alert("Objetivo concluido!");
+                setTimeout(levantaPlaquinha, 200);
             }
-            console.log(qtdCaixasCorretas);
+            
         }
     }
 
