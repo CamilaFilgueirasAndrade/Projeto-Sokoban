@@ -16,10 +16,11 @@ export function buildGameBoard() {
     const pieces = {
         block: []
     };
+    let numberOfGoal = 0;
 
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
-
+    
     for (let i = 0; i < NUM_ROWS; i++) {
         const row = createGameElement('div', 'row', board);
 
@@ -30,13 +31,16 @@ export function buildGameBoard() {
             const position = {x: j, y:i};
 
             if (char === '#') cell.classList.add('wall');
-            if (char === 'G') cell.classList.add('goal');
+            if (char === 'G') {
+                cell.classList.add('goal');
+                 numberOfGoal++;
+            };
             if (char === 'P') pieces.player = position;
             if (char === 'B') pieces.block.push(position);
         }
     }
 
-    return pieces;
+    return { pieces, numberOfGoal };
 }
 
 export function createGameElement(elementName, className, parentNode) {
