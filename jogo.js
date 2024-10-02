@@ -38,22 +38,28 @@ function handlePieceMovement(keycode) {
     const nextPlayerPosition = player.nextPosition(keycode);
     const block = findBoxAtPosition(nextPlayerPosition);
 
-    
+
     if (block) {
         const nextBlockPosition1 = block.nextPosition(keycode);
         const nextBlockPosition2 = findBoxAtPosition(nextBlockPosition1);
 
         const boxCanMove = verifyPosition(nextBlockPosition1);
 
-    
+
         if (boxCanMove && !nextBlockPosition2) {
             block.moveTo(nextBlockPosition1);
             player.moveTo(nextPlayerPosition);
+
+            const qtdCaixasCorretas = contaCaixasCorretas();
+            if(qtdCaixasCorretas == 3){
+                alert("Objetivo concluido!");
+            }
+            console.log(qtdCaixasCorretas);
         }
     }
-    
+
     else {
-      const playerCanMove = verifyPosition(nextPlayerPosition);
+        const playerCanMove = verifyPosition(nextPlayerPosition);
 
         if (playerCanMove) {
             player.moveTo(nextPlayerPosition);
@@ -75,4 +81,19 @@ function verifyPosition(position) {
     let { x: j, y: i } = position;
 
     return boardMap[i][j] !== '#';
+}
+
+function contaCaixasCorretas() {
+    let count = 0;
+
+    for (let b = 0; b < boxes.length; b++) {
+        const position = boxes[b]
+        let { x: j, y: i } = position;
+
+        if (boardMap[i][j] === 'G') count++;
+
+
+    }
+
+    return count;
 }
