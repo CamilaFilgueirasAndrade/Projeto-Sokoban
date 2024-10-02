@@ -56,11 +56,6 @@ main {
     box-shadow: none;
 }
 
-.box {
-    background-color: chocolate;
-    border: 3px solid burlywood;
-    
-}
 
 .block{
     position: absolute;
@@ -70,12 +65,13 @@ main {
     box-sizing: border-box;
     width: 60px;
     height: 60px;
-   
+    
     margin: 2px;
-    border: 6px solid;
-    border-radius: 20%;
-   
-    background-color: chocolate;
+    
+    background-image: linear-gradient(rgb(238, 158, 8), rgb(243, 29, 215));
+    border: 4px solid rgb(245, 15, 53);
+    border-radius: 25%;
+    
 }
 
 .goal {
