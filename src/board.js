@@ -1,25 +1,4 @@
-// export const boardMap = [
-//     ["_", "_", "#", "#", "#", "#", "#"],
-//     ["#", "#", ".", ".", ".", ".", "#"],
-//     ["#", ".", ".", ".", "#", ".", ".", "#"],
-//     ["#", ".", "#", ".", "G", ".", ".", "#"],
-//     ["#", ".", ".", ".", "B", "#", ".", "#"],
-//     ["#", ".", "G", "B", "P", "B", "G", "#"],
-//     [" ", "#", ".", ".", ".", ".", "#", "#"],
-//     [" ", "#", "#", "#", "#", "#"]
-// ];
-
-
-const lvl0 = `
-__#####
-###P..#
-#..B#.##
-#.#GB..+#
-#..G.#.#
-##.#...#
-_#...###
-_#####
-`
+import {lvl0, lvl1, lvl2} from "./niveis.js"
 
 function strToBoardMap(level){
     const line = level.trim().split('\n');
@@ -27,7 +6,7 @@ function strToBoardMap(level){
     
     return line;
 }
-export const boardMap = strToBoardMap(lvl0);
+export const boardMap = strToBoardMap(lvl2);
 
 export function buildGameBoard() {
     const NUM_ROWS = boardMap.length;
