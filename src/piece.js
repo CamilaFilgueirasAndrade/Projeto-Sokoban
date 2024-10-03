@@ -28,6 +28,10 @@ function Piece(x, y) {
         this.updateElementoPosition();
     }
 
+    function contaMovimento(){
+        
+    }
+
     this.insertElementInto = function (className, parent) {
         this.elemento = createGameElement('div', className, parent);
 
