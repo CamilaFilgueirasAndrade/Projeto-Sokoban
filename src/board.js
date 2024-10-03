@@ -1,4 +1,4 @@
-import {lvl0, lvl1, lvl2} from "./niveis.js"
+
 
 function strToBoardMap(level){
     const line = level.trim().split('\n');
@@ -6,9 +6,10 @@ function strToBoardMap(level){
     
     return line;
 }
-export const boardMap = strToBoardMap(lvl2);
 
-export function buildGameBoard() {
+
+export function buildGameBoard(mapa) {
+    const boardMap = strToBoardMap(mapa);
     const NUM_ROWS = boardMap.length;
     const pieces = {
         block: []
@@ -41,7 +42,7 @@ export function buildGameBoard() {
         }
     }
 
-    return { pieces, numberOfGoal };
+    return { boardMap, pieces, numberOfGoal };
 }
 
 export function createGameElement(elementName, className, parentNode) {

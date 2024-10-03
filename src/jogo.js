@@ -1,7 +1,8 @@
 import Piece from "./piece.js";
-import { buildGameBoard, boardMap } from "./board.js";
+import { buildGameBoard} from "./board.js";
+import {lvl0, lvl1, lvl2} from "./niveis.js"
 
-const { pieces, numberOfGoal } = buildGameBoard();
+const { boardMap,pieces, numberOfGoal } = buildGameBoard(lvl0);
 const board = document.querySelector('.tabuleiro');
 
 const player = creatBoardPiece(pieces.player, 'player');
