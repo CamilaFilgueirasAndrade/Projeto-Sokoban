@@ -68,9 +68,11 @@ main {
     
     margin: 2px;
     
-    background-image: linear-gradient(rgb(238, 158, 8), rgb(243, 29, 215));
-    border: 4px solid rgb(245, 15, 53);
-    border-radius: 25%;
+    /* background-image: linear-gradient(rgb(238, 158, 8), rgb(243, 29, 215)); */
+    border-radius: 50%;
+    background-image: url("lua.jpg");
+    background-size: cover;
+    background-position: center;
     
     transition:
         left 150ms ease-in-out 50ms,
@@ -86,7 +88,7 @@ main {
 }
 
 
-.player {
+.player{
     position: absolute;
     top: 0;
     left: 0;
@@ -94,9 +96,12 @@ main {
     width: 64px;
     height: 64px;
 
-    border: solid 4px gold;
+    /* border: solid 4px gold; */
     border-radius: 50%;
-    background-image: linear-gradient(goldenrod, gold);
+    background-image: url("mae_da_lua1.jpg");
+    background-size: cover;
+    background-position: center;
+    /* background-image: linear-gradient(goldenrod, gold); */
 
     box-shadow: 2px 3px 3px rgba(57, 49, 49, 0.302);
 
@@ -104,3 +109,4 @@ main {
         left 150ms ease-in-out 50ms,
         top 150ms ease-in-out 50ms;
 }
+

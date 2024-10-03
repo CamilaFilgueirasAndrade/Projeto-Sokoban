@@ -1,42 +1,64 @@
-export const boardMap = [
-    ["#", "#", "#", "#", "#", "#", "#", "#"],
-    ["#", ".", ".", ".", ".", ".", ".", "#"],
-    ["#", ".", ".", ".", "#", ".", ".", "#"],
-    ["#", ".", "#", ".", "G", ".", ".", "#"],
-    ["#", ".", ".", ".", "B", "#", ".", "#"],
-    ["#", ".", "G", "B", "P", "B", "G", "#"],
-    ["#", ".", ".", ".", ".", ".", ".", "#"],
-    ["#", "#", "#", "#", "#", "#", "#", "#"]
-];
+// export const boardMap = [
+//     ["_", "_", "#", "#", "#", "#", "#"],
+//     ["#", "#", ".", ".", ".", ".", "#"],
+//     ["#", ".", ".", ".", "#", ".", ".", "#"],
+//     ["#", ".", "#", ".", "G", ".", ".", "#"],
+//     ["#", ".", ".", ".", "B", "#", ".", "#"],
+//     ["#", ".", "G", "B", "P", "B", "G", "#"],
+//     [" ", "#", ".", ".", ".", ".", "#", "#"],
+//     [" ", "#", "#", "#", "#", "#"]
+// ];
 
-const NUM_ROWS = boardMap.length;
-const NUM_COLS = boardMap[0].length;
+
+const lvl0 = `
+__#####
+###P..#
+#..B#.##
+#.#GB..+#
+#..G.#.#
+##.#...#
+_#...###
+_#####
+`
+
+function strToBoardMap(level){
+    const line = level.trim().split('\n');
+    console.log(line);
+    
+    return line;
+}
+export const boardMap = strToBoardMap(lvl0);
 
 export function buildGameBoard() {
+    const NUM_ROWS = boardMap.length;
     const pieces = {
         block: []
     };
     let numberOfGoal = 0;
-
+    
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
     
     for (let i = 0; i < NUM_ROWS; i++) {
         const row = createGameElement('div', 'row', board);
+        const NUM_COLS = boardMap[i].length;
 
         for (let j = 0; j < NUM_COLS; j++) {
             const cell = createGameElement('div', 'cell', row);
 
             const char = boardMap[i][j]
-            const position = {x: j, y:i};
+            const position = { x: j, y: i };
 
             if (char === '#') cell.classList.add('wall');
+            if (char === ' ') cell.classList.add('empty');
+            if (char === '_') cell.classList.add('empty');
             if (char === 'G') {
                 cell.classList.add('goal');
-                 numberOfGoal++;
+                numberOfGoal++;
             };
             if (char === 'P') pieces.player = position;
             if (char === 'B') pieces.block.push(position);
+
         }
     }
 
