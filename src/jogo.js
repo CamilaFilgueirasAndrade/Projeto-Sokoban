@@ -1,8 +1,8 @@
 import Piece from "./piece.js";
-import { buildGameBoard} from "./board.js";
-import {lvl0, lvl1, lvl2} from "./niveis.js"
+import { buildGameBoard } from "./board.js";
+import { lvl0, lvl1, lvl2 } from "./niveis.js"
 
-const { boardMap,pieces, numberOfGoal } = buildGameBoard(lvl0);
+const { boardMap, pieces, numberOfGoal } = buildGameBoard(lvl0);
 const board = document.querySelector('.tabuleiro');
 
 const player = creatBoardPiece(pieces.player, 'player');
@@ -24,15 +24,10 @@ function handleKeyDownEvent(keycode) {
 }
 
 window.addEventListener("keydown", function (event) {
-    // event.preventDefault();
 
     handlePieceMovement(event.code);
 });
 
-function levantaPlaquinha(){
-    alert("Objetivo concluido!");
-
-}
 
 function findBoxAtPosition(position) {
 
@@ -48,7 +43,6 @@ function handlePieceMovement(keycode) {
     if (block) {
         const nextBlockPosition1 = block.nextPosition(keycode);
         const nextBlockPosition2 = findBoxAtPosition(nextBlockPosition1);
-
         const boxCanMove = verifyPosition(nextBlockPosition1);
 
 
@@ -56,13 +50,8 @@ function handlePieceMovement(keycode) {
             block.moveTo(nextBlockPosition1);
             player.moveTo(nextPlayerPosition);
 
-            const qtdCaixasCorretas = contaCaixasCorretas();
-            
-            if(qtdCaixasCorretas == numberOfGoal){
-                setTimeout(levantaPlaquinha, 200);
-            }
-            
         }
+        if (levelCompleted()) setTimeout(() => alert("Objetivo concluido!"), 200);
     }
 
     else {
@@ -90,17 +79,14 @@ function verifyPosition(position) {
     return boardMap[i][j] !== '#';
 }
 
-function contaCaixasCorretas() {
+function levelCompleted() {
     let count = 0;
 
-    for (let b = 0; b < boxes.length; b++) {
-        const position = boxes[b]
+    for (const position of boxes) {
         let { x: j, y: i } = position;
 
         if (boardMap[i][j] === 'G') count++;
-
-
     }
 
-    return count;
+    return count == numberOfGoal;
 }

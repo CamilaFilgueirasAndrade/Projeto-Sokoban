@@ -1,15 +1,6 @@
 
-
-function strToBoardMap(level){
-    const line = level.trim().split('\n');
-    console.log(line);
-    
-    return line;
-}
-
-
 export function buildGameBoard(mapa) {
-    const boardMap = strToBoardMap(mapa);
+    const boardMap = mapa.trim().split('\n');;
     const NUM_ROWS = boardMap.length;
     const pieces = {
         block: []
