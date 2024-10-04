@@ -1,17 +1,9 @@
-import Piece from "./piece.js";
 import { buildGameBoard } from "./board.js";
 import { lvl0, lvl1, lvl2 } from "./niveis.js"
 
 const { boardMap, pieces, numberOfGoal } = buildGameBoard(lvl0);
-const board = document.querySelector('.tabuleiro');
 
-const player = creatBoardPiece(pieces.player, 'player');
-const boxes = [];
-
-for (let i = 0; i < pieces.block.length; i++) {
-    let piece = creatBoardPiece(pieces.block[i], 'block');
-    boxes.push(piece);
-}
+const { player, block: boxes  } = pieces;
 
 function handleKeyDownEvent(keycode) {
     const next = player.nextPosition(keycode);
@@ -61,15 +53,6 @@ function handlePieceMovement(keycode) {
             player.moveTo(nextPlayerPosition);
         }
     }
-}
-
-function creatBoardPiece(piecePosition, className) {
-    const piece = new Piece(piecePosition.x, piecePosition.y);
-    piece.insertElementInto(className, board);
-
-
-
-    return piece;
 }
 
 function verifyPosition(position) {
