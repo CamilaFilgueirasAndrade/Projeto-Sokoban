@@ -1,23 +1,18 @@
 
-import Piece from  "./piece.js";
+import Piece from "./piece.js";
 
-export function buildGameBoard(mapa) {
-    const boardMap = mapa.trim().split('\n');;
-    const pieces = {
-        block: []
-    };
-    
-    let numberOfGoal = 0;
-    
+export function buildGameBoard(level) {
+    const boardMap = level.trim().split('\n');
+
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'tabuleiro', game);
-    const NUM_ROWS = boardMap.length;
+    let numberOfGoal = 0, block = [], player = null;
 
-    for (let i = 0; i < NUM_ROWS; i++) {
+
+    for (let i = 0; i < boardMap.length; i++) {
         const row = createGameElement('div', 'row', board);
-        const NUM_COLS = boardMap[i].length;
 
-        for (let j = 0; j < NUM_COLS; j++) {
+        for (let j = 0; j < boardMap[i].length; j++) {
             const cell = createGameElement('div', 'cell', row);
 
             const char = boardMap[i][j]
@@ -26,17 +21,17 @@ export function buildGameBoard(mapa) {
             if (char === '#') cell.classList.add('wall');
             if (char === ' ') cell.classList.add('empty');
             if (char === '_') cell.classList.add('empty');
-            if (char === 'P') pieces.player = createBoardPiece (position, 'player');
-            if (char === 'B') pieces.block.push(createBoardPiece(position, 'block'));
+            if (char === 'P') player = createBoardPiece(position, 'player');
+            if (char === 'B') block.push(createBoardPiece(position, 'block'));
             if (char === 'G') {
                 cell.classList.add('goal');
                 numberOfGoal++;
             };
-            
+
         }
     }
 
-    return { boardMap, pieces, numberOfGoal };
+    return { boardMap, pieces: {block, player}, numberOfGoal };
 }
 
 export function createGameElement(elementName, className, parentNode) {
@@ -51,8 +46,8 @@ export function createGameElement(elementName, className, parentNode) {
 function createBoardPiece(piecePosition, className) {
     const board = document.querySelector('.tabuleiro');
     const piece = new Piece(piecePosition.x, piecePosition.y);
-    
+
     piece.insertElementInto(className, board);
-    
+
     return piece;
 }

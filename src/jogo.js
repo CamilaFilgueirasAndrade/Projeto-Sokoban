@@ -1,9 +1,7 @@
 import { buildGameBoard } from "./board.js";
 import { lvl0, lvl1, lvl2 } from "./niveis.js"
 
-const { boardMap, pieces, numberOfGoal } = buildGameBoard(lvl0);
-
-const { player, block: boxes  } = pieces;
+const { boardMap, pieces: {block, player}, numberOfGoal } = buildGameBoard(lvl0);
 
 function handleKeyDownEvent(keycode) {
     const next = player.nextPosition(keycode);
@@ -23,7 +21,7 @@ window.addEventListener("keydown", function (event) {
 
 function findBoxAtPosition(position) {
 
-    return boxes.find((boxes) => position.y === boxes.y && position.x === boxes.x);
+    return block.find((boxes) => position.y === boxes.y && position.x === boxes.x);
 }
 
 function handlePieceMovement(keycode) {
@@ -65,7 +63,7 @@ function verifyPosition(position) {
 function levelCompleted() {
     let count = 0;
 
-    for (const position of boxes) {
+    for (const position of block) {
         let { x: j, y: i } = position;
 
         if (boardMap[i][j] === 'G') count++;
